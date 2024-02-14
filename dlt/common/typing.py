@@ -24,6 +24,7 @@ from typing import (
     Union,
     runtime_checkable,
     IO,
+    Iterator,
 )
 from typing_extensions import TypeAlias, ParamSpec, Concatenate, Annotated, get_args, get_origin
 
@@ -50,6 +51,7 @@ StrStrStr: TypeAlias = Mapping[str, Mapping[str, str]]  # immutable, covariant e
 AnyFun: TypeAlias = Callable[..., Any]
 TFun = TypeVar("TFun", bound=AnyFun)  # any function
 TAny = TypeVar("TAny", bound=Any)
+TAnyFunOrIterator = TypeVar("TAnyFunOrIterator", AnyFun, Iterator[Any])
 TAnyClass = TypeVar("TAnyClass", bound=object)
 TimedeltaSeconds = Union[int, float, timedelta]
 # represent secret value ie. coming from Kubernetes/Docker secrets or other providers
